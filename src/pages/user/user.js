@@ -46,7 +46,7 @@ export default class user extends React.Component {
 
             <Menu.Item key="/user/list">
               
-              <IndexLink to="/user/list" activeClassName="active"><Icon type="team" />用户列表</IndexLink>
+              <IndexLink to="/user/list" activeClassName="active"><Icon type="team" />子栏目1</IndexLink>
 
             </Menu.Item>
            

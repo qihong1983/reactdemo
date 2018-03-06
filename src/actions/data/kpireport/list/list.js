@@ -16,7 +16,7 @@
 
 
 		return function(dispatch) {
-			fetch("http://127.0.0.1:3001/user_kpireport_list", {
+			fetch("http://tokendemo.youyong.ba/user_kpireport_list", {
 				method: 'POST',
 				mode: 'cors',
 				cache: 'default',

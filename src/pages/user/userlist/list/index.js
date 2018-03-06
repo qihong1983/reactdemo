@@ -36,7 +36,7 @@ export default class list extends React.Component {
 	render() {
 		return (
 			<Content style={{ background: '#fff', padding: 24, margin: 24, minHeight:'400px'}}>
-				用户列表
+				栏目三 -- 子栏目1
 			</Content>
 		);
 	}

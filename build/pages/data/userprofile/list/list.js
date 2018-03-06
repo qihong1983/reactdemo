@@ -108,15 +108,15 @@ class userProfile extends React.Component {
 
 
 		const columns = [{
-			title: '日期',
+			title: 'columns1',
 			dataIndex: 'date',
 			key: 'date',
 		}, {
-			title: '新增用户',
+			title: 'columns2',
 			dataIndex: 'newUsers',
 			key: 'newUsers',
 		}, {
-			title: '活跃用户',
+			title: 'columns3',
 			dataIndex: 'activeUser',
 			key: 'activeUser',
 		}, {
@@ -144,70 +144,7 @@ class userProfile extends React.Component {
 		return (
 			<div>
         <Content style={{ background: '#fff', padding: 24, margin: 0}}>
-          <Form layout="inline">
-          	<FormItem label="操作系统">
-          		<Select 
-          			placeholder="Select a option and change input text above" 
-          			dropdownMatchSelectWidth={true}  
-          			defaultValue=""
-          			style={{width:"100px"}}>
-	          		<Option value="">全部</Option>
-		            <Option value="24">Android</Option>
-		            <Option value="27">iOS</Option>
-	            </Select>
-          	</FormItem>
-          	<FormItem label="线上\线下">
-          		<Select 
-          			placeholder="Select a option and change input text above" 
-          			dropdownMatchSelectWidth={true}
-          		 	defaultValue="" 
-          		 	style={{width:'100px'}}>
-	          		<Option value="">全部</Option>
-		            <Option value="1">线上</Option>
-		            <Option value="2">线下</Option>
-	            </Select>
-          	</FormItem>
-
-			<FormItem label="渠道组">
-          		<Select 
-          			showSearch={true}
-          			placeholder="搜索渠道组" 
-          			dropdownMatchSelectWidth={true}
-          		 	defaultValue=""
-          		 	style={{width:'160px'}}
-          		 	optionFilterProp="children"
-          		 	onChange={this.handleChange.bind(this)}>
-	          		<Option value="">全部</Option>
-		            <Option value="1">samsung_total_news</Option>
-		            <Option value="2">kp_total_news</Option>
-		            <Option value="3">oppo_total_news</Option>
-	            </Select>
-          	</FormItem>
-
-			<FormItem label="">
-          		<Select 
-			        mode="combobox"
-			        placeholder="搜索渠道名称"
-			        notFoundContent=""
-			        style={{width:"100px"}}
-			        defaultActiveFirstOption={false}
-			        showArrow={false}
-			        filterOption={false}
-          		 >
-				{options}
-	            </Select>
-          	</FormItem>
-
-			<FormItem label="" >
-	          	<RangePicker size="large"
-			      defaultValue={[moment('2015/01/01', dateFormat), moment('2015/01/01', dateFormat)]}
-			      format={dateFormat}
-			      style={{width:"260px"}}
-			    />
-			</FormItem>
-          	 <Button size="large" type="primary">查询</Button>
-
-          </Form>
+          打开浏览器，查看控制台，查看网络
         </Content>
 
 

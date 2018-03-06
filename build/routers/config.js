@@ -57,7 +57,7 @@
  			<Router history={this.props.history}>
  			  <Route path="/login" component={Login}>				
  			  </Route>
-			  <Route path="/" component={Main}>	
+		<Route path="/" component={Main}>
 				 <IndexRedirect to="data" />
 	          
 	            <Route path="data" component={Data}>

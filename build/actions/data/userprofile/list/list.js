@@ -14,7 +14,7 @@
 	export const list = (token, props) => {
 
 		return function(dispatch) {
-			fetch("http://127.0.0.1:3001/user_profile_list?appCode=" + props.os + "&online=1", {
+			fetch("http://tokendemo.youyong.ba/user_profile_list?appCode=" + props.os + "&online=1", {
 				method: 'GET',
 				mode: 'cors',
 				cache: 'default',

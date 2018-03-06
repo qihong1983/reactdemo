@@ -86,13 +86,13 @@ export default class Data extends React.Component {
         		
         		{/*<IndexLink to="/data/userprofile" activeClassName="active" query={nav: "profile"}><Icon type="team" />{this.props.location.pathname}用户概况</IndexLink>*/}
 
-        		<IndexLink to={{ pathname: '/data/userprofile',  key: "profile" }} activeClassName="active" ><Icon type="team" />{this.props.location.pathname}用户概况</IndexLink>
+        		<IndexLink to={{ pathname: '/data/userprofile',  key: "profile" }} activeClassName="active" ><Icon type="team" />子栏目1</IndexLink>
 
         	</Menu.Item>
         	<Menu.Item key="kpireport">
         		
         		{/*<IndexLink to="/data/kpireport" activeClassName="active"  ><Icon type="shop" />KPI报表</IndexLink>*/}
-        		<IndexLink to={{ pathname: '/data/kpireport', key: "kpi" }} activeClassName="active"  ><Icon type="shop" />KPI报表</IndexLink>
+        		<IndexLink to={{ pathname: '/data/kpireport', key: "kpi" }} activeClassName="active"  ><Icon type="shop" />子栏目2</IndexLink>
         		
         	</Menu.Item>
          

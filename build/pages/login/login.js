@@ -56,7 +56,7 @@ class Login extends React.Component {
 			} else {
 				console.log(values, '成功');
 			}
-			fetch("http://127.0.0.1:3001/token", {
+			fetch("http://tokendemo.youyong.ba//token", {
 				method: 'POST',
 				mode: 'cors',
 				headers: {

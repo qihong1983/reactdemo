@@ -43,14 +43,17 @@ export default class Main extends React.Component {
         style={{ lineHeight: '64px' }}
       >
         <Menu.Item key="data">
-        	<IndexLink to="/data" activeClassName="active">渠道数据</IndexLink>
+        	<IndexLink to="/data" activeClassName="active">栏目一</IndexLink>
         </Menu.Item>
         <Menu.Item key="manager">
-        	<IndexLink to="/manager" activeClassName="active">渠道管理</IndexLink>
+        	<IndexLink to="/manager" activeClassName="active">栏目二</IndexLink>
         	
         </Menu.Item>
         <Menu.Item key="user">
-        	<IndexLink to="/user" activeClassName="active">用户管理</IndexLink>
+        	<IndexLink to="/user" activeClassName="active">栏目三</IndexLink>
+        </Menu.Item>
+        <Menu.Item key="login">
+          <IndexLink to="/login" activeClassName="active">退出</IndexLink>
         </Menu.Item>
       </Menu>
     </Header>

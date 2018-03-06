@@ -52,12 +52,12 @@ export default class Manager extends React.Component {
 
             <Menu.Item key="/manager/list">
               
-              <IndexLink to="/manager/list" activeClassName="active"><Icon type="team" />渠道数据</IndexLink>
+              <IndexLink to="/manager/list" activeClassName="active"><Icon type="team" />子栏目1</IndexLink>
 
             </Menu.Item>
             <Menu.Item key="/manager/group">
               
-              <IndexLink to="/manager/group" activeClassName="active" ><Icon type="shop" />渠道分组</IndexLink>
+              <IndexLink to="/manager/group" activeClassName="active" ><Icon type="shop" />子栏目2</IndexLink>
               
             </Menu.Item>
            
