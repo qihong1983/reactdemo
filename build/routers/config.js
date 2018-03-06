@@ -63,9 +63,12 @@
 	            <Route path="data" component={Data}>
 	            	<IndexRedirect to="userprofile"  />
 	            	{/*<IndexRoute component={ChannelDashrd} />*/}
-	            	<Route path="userprofile" component={UserProfile}>
-	            		<IndexRoute component={UserProfileList} />
-	            		<Route path=":id" component={UserProfileEdit}>
+	            	<Route path="userprofile" component={UserProfile} name="profile" state={{currentPage
+: "aaa",asdfa: "asdfasd"}}>
+	            		<IndexRoute component={UserProfileList} state={{currentPage
+: "aaa",asdfa: "asdfasd2"}}/>
+	            		<Route path="edit/:id" component={UserProfileEdit} state={{currentPage
+: "aaa",asdfa: "asdfasd2"}}>
 	            		</Route>
 	            	</Route>
 

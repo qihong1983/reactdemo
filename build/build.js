@@ -40028,9 +40028,9 @@ var Routers = function (_React$Component) {
               _react2.default.createElement(_reactRouter.IndexRedirect, { to: 'userprofile' }),
               _react2.default.createElement(
                 _reactRouter.Route,
-                { path: 'userprofile', component: _userProfile2.default },
-                _react2.default.createElement(_reactRouter.IndexRoute, { component: _list2.default }),
-                _react2.default.createElement(_reactRouter.Route, { path: ':id', component: _edit2.default })
+                { path: 'userprofile', component: _userProfile2.default, name: 'profile', state: { currentPage: "aaa", asdfa: "asdfasd" } },
+                _react2.default.createElement(_reactRouter.IndexRoute, { component: _list2.default, state: { currentPage: "aaa", asdfa: "asdfasd2" } }),
+                _react2.default.createElement(_reactRouter.Route, { path: 'edit/:id', component: _edit2.default, state: { currentPage: "aaa", asdfa: "asdfasd2" } })
               ),
               _react2.default.createElement(
                 _reactRouter.Route,
@@ -47593,6 +47593,11 @@ var Data = function (_React$Component) {
 
 			console.log(this.state.currentPage, 'asdf');
 
+			console.log(this);
+			console.log(window.location.pathname);
+
+			console.log(this.props.router.getCurrentLocation(), 'location');
+			console.log(this.props.router.isActive(this.props.router.getCurrentLocation(), "profile"));
 			// this.setState({
 			// 	currentPage: window.location.pathname
 			// });
@@ -47606,26 +47611,28 @@ var Data = function (_React$Component) {
 					_react2.default.createElement(
 						_menu2.default,
 						{
-							mode: 'inline',
-							defaultSelectedKeys: [window.location.pathname],
+							mode: 'inline'
+							// defaultSelectedKeys={[this.props.location.pathname]}
+							, selectedKeys: this.props.location.pathname.split("/"),
 							style: { height: '100%', borderRight: 0 }
 						},
 						_react2.default.createElement(
 							_menu2.default.Item,
-							{ key: '/data/userprofile' },
+							{ key: 'userprofile' },
 							_react2.default.createElement(
 								_reactRouter.IndexLink,
-								{ to: '/data/userprofile', activeClassName: 'active' },
+								{ to: { pathname: '/data/userprofile', key: "profile" }, activeClassName: 'active' },
 								_react2.default.createElement(_icon2.default, { type: 'team' }),
+								this.props.location.pathname,
 								'\u7528\u6237\u6982\u51B5'
 							)
 						),
 						_react2.default.createElement(
 							_menu2.default.Item,
-							{ key: '/data/kpireport' },
+							{ key: 'kpireport' },
 							_react2.default.createElement(
 								_reactRouter.IndexLink,
-								{ to: '/data/kpireport', activeClassName: 'active' },
+								{ to: { pathname: '/data/kpireport', key: "kpi" }, activeClassName: 'active' },
 								_react2.default.createElement(_icon2.default, { type: 'shop' }),
 								'KPI\u62A5\u8868'
 							)
@@ -48837,12 +48844,12 @@ var Main = function (_React$Component) {
             {
               theme: 'dark',
               mode: 'horizontal',
-              defaultSelectedKeys: ['1'],
+              selectedKeys: this.props.location.pathname.split("/"),
               style: { lineHeight: '64px' }
             },
             _react2.default.createElement(
               _menu2.default.Item,
-              { key: '1' },
+              { key: 'data' },
               _react2.default.createElement(
                 _reactRouter.IndexLink,
                 { to: '/data', activeClassName: 'active' },
@@ -48851,7 +48858,7 @@ var Main = function (_React$Component) {
             ),
             _react2.default.createElement(
               _menu2.default.Item,
-              { key: '2' },
+              { key: 'manager' },
               _react2.default.createElement(
                 _reactRouter.IndexLink,
                 { to: '/manager', activeClassName: 'active' },
@@ -48860,7 +48867,7 @@ var Main = function (_React$Component) {
             ),
             _react2.default.createElement(
               _menu2.default.Item,
-              { key: '3' },
+              { key: 'user' },
               _react2.default.createElement(
                 _reactRouter.IndexLink,
                 { to: '/user', activeClassName: 'active' },

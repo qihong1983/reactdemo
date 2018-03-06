@@ -63,6 +63,11 @@ export default class Data extends React.Component {
 
 		console.log(this.state.currentPage, 'asdf');
 
+		console.log(this);
+		console.log(window.location.pathname);
+
+		console.log(this.props.router.getCurrentLocation(), 'location');
+		console.log(this.props.router.isActive(this.props.router.getCurrentLocation(), "profile"))
 		// this.setState({
 		// 	currentPage: window.location.pathname
 		// });
@@ -72,18 +77,22 @@ export default class Data extends React.Component {
       <Sider width={200} style={{ background: '#fff' }}>
         <Menu
           mode="inline"
-          defaultSelectedKeys={[window.location.pathname]}
+          // defaultSelectedKeys={[this.props.location.pathname]}
+          selectedKeys={this.props.location.pathname.split("/")}
           style={{ height: '100%', borderRight: 0 }}
         >
 
-        	<Menu.Item key="/data/userprofile">
+        	<Menu.Item key="userprofile">
         		
-        		<IndexLink to="/data/userprofile" activeClassName="active"><Icon type="team" />用户概况</IndexLink>
+        		{/*<IndexLink to="/data/userprofile" activeClassName="active" query={nav: "profile"}><Icon type="team" />{this.props.location.pathname}用户概况</IndexLink>*/}
+
+        		<IndexLink to={{ pathname: '/data/userprofile',  key: "profile" }} activeClassName="active" ><Icon type="team" />{this.props.location.pathname}用户概况</IndexLink>
 
         	</Menu.Item>
-        	<Menu.Item key="/data/kpireport">
+        	<Menu.Item key="kpireport">
         		
-        		<IndexLink to="/data/kpireport" activeClassName="active" ><Icon type="shop" />KPI报表</IndexLink>
+        		{/*<IndexLink to="/data/kpireport" activeClassName="active"  ><Icon type="shop" />KPI报表</IndexLink>*/}
+        		<IndexLink to={{ pathname: '/data/kpireport', key: "kpi" }} activeClassName="active"  ><Icon type="shop" />KPI报表</IndexLink>
         		
         	</Menu.Item>
          

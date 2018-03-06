@@ -39,17 +39,17 @@ export default class Main extends React.Component {
       <Menu
         theme="dark"
         mode="horizontal"
-        defaultSelectedKeys={['1']}
+        selectedKeys={this.props.location.pathname.split("/")}
         style={{ lineHeight: '64px' }}
       >
-        <Menu.Item key="1">
+        <Menu.Item key="data">
         	<IndexLink to="/data" activeClassName="active">渠道数据</IndexLink>
         </Menu.Item>
-        <Menu.Item key="2">
+        <Menu.Item key="manager">
         	<IndexLink to="/manager" activeClassName="active">渠道管理</IndexLink>
         	
         </Menu.Item>
-        <Menu.Item key="3">
+        <Menu.Item key="user">
         	<IndexLink to="/user" activeClassName="active">用户管理</IndexLink>
         </Menu.Item>
       </Menu>
