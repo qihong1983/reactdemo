@@ -14,8 +14,10 @@
  import NProgress from 'nprogress';
 
  //登录登录前
+ //import Login from '../pages/login/login';
  import Login from '../pages/login/login';
  //登录后
+ //import Main from '../pages/main';
  import Main from '../pages/main';
 
  import Data from '../pages/data/data';
@@ -38,8 +40,8 @@
  import Group from '../pages/manager/group/group';
  import ChannelGroup from '../pages/manager/group/list/list';
 
- import UserList from '../pages/user/userList/list';
- import UserListIndex from '../pages/user/userList/list/index';
+ import UserList from '../pages/user/userlist/list';
+ import UserListIndex from '../pages/user/userlist/list/index';
 
 
 

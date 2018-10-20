@@ -78,7 +78,13 @@ module.exports = {
         ]
     },
     devServer: {
-
+	contentBase: "./build", //以public为根目录提供文件
+        colors: true,
+        historyApiFallback: true,
+        inline: true,
+        quiet: true,
+	host: "39.106.140.80",
+        port: 3002
     },
     resolve: {
         alias: {
