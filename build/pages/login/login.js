@@ -12,22 +12,139 @@ import React from 'react';
 import cookie from 'react-cookies';
 import NProgress from 'nprogress';
 
+var QRCode = require('qrcode.react');
+
+var uuid = require('react-native-uuid');
+
 class Login extends React.Component {
 
 
 	constructor(props) {
 		super(props);
+
+		this.state = {
+			uuid: "no",
+			qrcodeHeight: 0
+		}
+
+		this.timer = null;
 	}
 
 	componentWillMount() {
 		NProgress.start();
 	}
 
+
+
+	componentWillUnmount() {
+		clearInterval(this.timer);
+	}
+
+	forFetch() {
+
+		clearInterval(this.timer);
+		this.timer = setInterval(async function() {
+
+
+			let res = await fetch("http://tokendemo.youyong.ba/queryUuid", {
+				method: 'POST',
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					"uuid": this.state.uuid
+				})
+			});
+
+			// let json = res.json();
+
+			// await res.then(function(res) {
+
+			// 	res.json().then(res => {
+
+			// 		if (res.status) {
+			// 			console.log(res.data[0]);
+			// 			if (res.data[0].token !== "") {
+			// 				cookie.save('token', res.data[0].token, {
+			// 					path: '/'
+			// 				});
+
+			// 				clearInterval(this.timer);
+			// 				//登录成功跳转到默认页面
+			// 				this.props.router.push('/data/userprofile');
+			// 			}
+
+			// 		}
+
+			// 	});
+
+			// }.bind(this))
+
+			var json = await res.json();
+
+			console.log(json);
+
+			if (json.status) {
+				console.log(json.data[0]);
+				if (json.data[0].token !== "") {
+					cookie.save('token', json.data[0].token, {
+						path: '/'
+					});
+
+					clearInterval(this.timer);
+					//登录成功跳转到默认页面
+					this.props.router.push('/data/userprofile');
+				}
+
+			}
+
+
+		}.bind(this), 1000)
+
+
+	}
+
 	componentDidMount() {
+
 		cookie.remove('token', {
 			path: '/'
 		});
 		NProgress.done();
+
+		console.log(uuid.v4(), 'uuid.v4');
+		// this.timer = null;
+		clearInterval(this.timer);
+		let res = fetch("http://tokendemo.youyong.ba/installUuid", {
+			method: 'POST',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				"uuid": uuid.v4()
+			})
+		});
+
+		// let json = res.json();
+
+		res.then(function(res) {
+
+			res.json().then(res => {
+
+				if (res.status) {
+					this.setState({
+						uuid: res.data,
+						qrcodeHeight: "auto"
+					}, function() {
+						this.forFetch();
+					}.bind(this));
+
+				}
+
+			});
+
+		}.bind(this))
 	}
 
 
@@ -76,6 +193,7 @@ class Login extends React.Component {
 							path: '/'
 						});
 
+						clearInterval(this.timer);
 						//登录成功跳转到默认页面
 						console.log(this.props.router.push('/data/userprofile'));
 					} else {
@@ -123,7 +241,9 @@ class Login extends React.Component {
 		          </Button>
 		          Or <a href="">register now!</a>
 		        </FormItem>
-
+		        <FormItem>
+		        	<QRCode value={this.state.uuid} style={{height:this.state.qrcodeHeight}} />
+		        </FormItem>
 				</Form>
 			</div>
 		);
